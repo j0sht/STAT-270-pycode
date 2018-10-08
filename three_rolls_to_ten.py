@@ -1,13 +1,14 @@
 #! /usr/bin/env python3
 
 # Three Rolls to Ten:
-#   - You roll a three sided die three times.
+#   - You roll a fair six sided die three times.
 #   - If the sum of the rolls is greater than or equal to 10, you win.
 #   - If the sum is less than 10, you lose.
 #
 # This program generates an experimental probability of winning three rolls
-#  to ten, by generating a list of a user given number of random numbers in
-#  range [1,6], and counting how many three digit sequences have a sum >= 10.
+#  to ten, by generating a list the size of a user provided number with random
+#  numbers in range [1,6], and counting how many three consecutive numbers in
+#  the list have a sum >= 10.
 from random import randint
 from sys import argv
 
@@ -15,9 +16,7 @@ def print_usage():
     print("Usage: ./three_rolls_to_ten <number of simulations>")
 
 def simulate_game(n):
-    numbers = []
-    for i in range(0,n):
-        numbers.append(randint(1,6))
+    numbers = [randint(1,6) for i in range(0,n)]
     wins = 0
     matches = 0
     current_sum = 0
