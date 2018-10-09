@@ -12,7 +12,7 @@ def expected_value(xs, probs):
 #  unless given a different value
 def variance(xs,probs,mean=0):
     if (mean == 0):
-        mean = expected(xs,probs)
+        mean = expected_value(xs,probs)
     v = 0
     for i in range(0,len(probs)):
         v += (((xs[i]-mean)**2)*probs[i])
